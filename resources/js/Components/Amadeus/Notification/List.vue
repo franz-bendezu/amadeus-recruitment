@@ -46,15 +46,9 @@
                 </div>
             </div>
             <div class="notification-items">
-                <div
+                <NotificationListEmpty
                     v-if="filteredNotifications.length === 0"
-                    class="empty-state mx-auto py-8"
-                >
-                    <i class="fas fa-bell-slash text-lg"></i>
-                    <div class="text-gray-400">
-                        No hay notificaciones disponibles
-                    </div>
-                </div>
+                />
                 <NotificationListItem
                     v-for="notification in filteredNotifications"
                     :key="notification.id"
@@ -74,6 +68,7 @@
 import { PropType, computed, ref, toRefs } from "vue";
 import NotificationListItem from "@/Components/Amadeus/Notification/ListItem.vue";
 import Dropdown from "@/Components/Amadeus/AmadeusDropdown.vue";
+import NotificationListEmpty from "@/Components/Amadeus/Notification/ListEmpty.vue";
 import { INotification } from "@/interfaces/notification.interface";
 import { NOTIFICATION_MODELS } from "@/constants/notification.constant";
 
@@ -213,11 +208,5 @@ const filteredNotifications = computed(() => {
     align-self: stretch;
     width: 100%;
     flex: 0 0 auto;
-}
-
-.notification-list .empty-state {
-    text-align: center;
-    font-size: 16px;
-    color: #777;
 }
 </style>
