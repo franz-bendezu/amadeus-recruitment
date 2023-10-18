@@ -14,7 +14,16 @@
                 </div>
             </div>
             <div class="notification-items">
-            
+                <NotificationListItem
+                    v-for="notification in notifications"
+                    :key="notification.id"
+                    :user="notification.user"
+                    :action="notification.action"
+                    :subject="notification.over"
+                    :message="notification.description"
+                    :date="notification.datetime"
+                    :model="notification.model_name"
+                />
             </div>
         </div>
     </div>
@@ -22,6 +31,7 @@
 
 <script lang="ts" setup>
 import { PropType } from "vue";
+import NotificationListItem from "@/Components/Amadeus/Notification/ListItem.vue";
 import { INotification } from "@/interfaces/notification.interface";
 
 defineProps({
