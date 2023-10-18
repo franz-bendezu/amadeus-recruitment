@@ -14,6 +14,10 @@
                 </div>
             </div>
             <div class="notification-items">
+                <div v-if="notifications.length === 0" class="empty-state mx-auto py-3">
+                    <i class="fas fa-bell-slash text-xl"></i>
+                    <div class="text-gray-400">No hay notificaciones disponibles</div>
+                </div>
                 <NotificationListItem
                     v-for="notification in notifications"
                     :key="notification.id"
@@ -142,4 +146,11 @@ defineProps({
     width: 100%;
     flex: 0 0 auto;
 }
+
+.notification-list .empty-state {
+  text-align: center;
+  font-size: 16px;
+  color: #777;
+}
+
 </style>
