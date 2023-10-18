@@ -13,9 +13,8 @@
                 </div>
                 <div class="subject">
                     <div class="subject-content">
-                        <span class="bold-text">
-                            {{ user.name + " " + user.surname }} </span
-                        >&nbsp; <span> {{ action }} </span>&nbsp;
+                        <span class="bold-text"> {{ fullName }} </span>&nbsp;
+                        <span> {{ actionName }} </span>&nbsp;
                         <span class="bold-text"> {{ subject }} </span>
                     </div>
                 </div>
@@ -29,9 +28,9 @@
         </div>
         <div class="notification-card-footer">
             <div class="info-bar">
-                <div class="title">{{ date }}</div>
+                <div class="title">{{ formattedDate }}</div>
                 <div class="separator"></div>
-                <div class="timestamp">{{ model }}</div>
+                <div class="timestamp">{{ modelName }}</div>
             </div>
         </div>
     </div>
@@ -39,13 +38,18 @@
 
 <script setup lang="ts">
 import { IUser } from "@/interfaces/user.interface";
-import { PropType } from "vue";
+import {
+    NOTIFICATION_ACTIONS,
+    NOTIFICATION_MODELS,
+} from "@/constants/notification.constant";
+import { PropType, computed, toRefs } from "vue";
 import {
     NotificationModel,
     NotificationAction,
 } from "@/interfaces/notification.interface";
+import { formatDateTime } from "@/utils/datetime";
 
-defineProps({
+const props = defineProps({
     user: {
         type: Object as PropType<IUser>,
         required: true,
@@ -71,6 +75,20 @@ defineProps({
         required: true,
     },
 });
+
+const { user, model, action, date } = toRefs(props);
+const fullName = computed(() => {
+    return `${user.value.name} ${user.value.surname}`;
+});
+const modelName = computed(() => {
+    return NOTIFICATION_MODELS[model.value];
+});
+
+const actionName = computed(() => {
+    return NOTIFICATION_ACTIONS[action.value];
+});
+
+const formattedDate = computed(() => formatDateTime(date.value));
 </script>
 
 <style scoped>
