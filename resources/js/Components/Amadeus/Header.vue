@@ -4,6 +4,7 @@ import Dropdown from '@/Components/Amadeus/AmadeusDropdown.vue';
 import DropdownLink from '@/Components/Amadeus/AmadeusDropdownLink.vue';
 import { Link } from '@inertiajs/vue3';
 import { permissions } from '@/utils/inertiaUtils';
+import NotificationList from '@/Components/Amadeus/Notification/List.vue';
 
 // Crea un array de notificaciones 
 const notifications = [
@@ -128,6 +129,7 @@ const notifications = [
                     </template>
 
                     <template #content>
+                        <NotificationList :notifications="notifications"></NotificationList>
                     </template>
                 </Dropdown>
 
