@@ -1,0 +1,27 @@
+{
+    "compilerOptions": {
+        "target": "ES2020",
+        "module": "ESNext",
+        "lib": [
+            "ES2020",
+            "DOM",
+            "DOM.Iterable"
+        ],
+        "sourceMap": true,
+        "moduleResolution": "node",
+        "baseUrl": ".",
+        "allowJs": true,
+        "paths": {
+            "@/*": [
+                "./resources/js/*"
+            ]
+        },
+        "noEmit": true
+    },
+    "include": [
+        "resources/js/**/*"
+    ],
+    "exclude": [
+        "node_modules",
+    ]
+}
