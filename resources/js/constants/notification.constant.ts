@@ -8,4 +8,5 @@ export const NOTIFICATION_ACTIONS:Record<NotificationAction, string> = {
 export const NOTIFICATION_MODELS:Record<NotificationModel, string> = {
     'califications': 'Calificaciones',
     'events': 'Eventos',
+    'opportunities': 'Oportunidades',
 };

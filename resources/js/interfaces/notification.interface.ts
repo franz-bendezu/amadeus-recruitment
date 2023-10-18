@@ -1,6 +1,6 @@
 import { IUser } from "./user.interface";
 export type NotificationAction = "commented" | "shared";
-export type NotificationModel = "califications" | "events";
+export type NotificationModel = "califications" | "events" | "opportunities";
 
 export interface INotification {
     id: number;
