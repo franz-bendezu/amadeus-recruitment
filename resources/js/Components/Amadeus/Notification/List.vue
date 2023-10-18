@@ -28,7 +28,7 @@
                             <template #content>
                                 <ul class="list-group">
                                     <li
-                                        class="list-group-item text-sm"
+                                        class="list-group-item text-xs py-1"
                                         v-for="model in uniqueModelNames"
                                         :key="model.key"
                                     >
@@ -48,9 +48,9 @@
             <div class="notification-items">
                 <div
                     v-if="filteredNotifications.length === 0"
-                    class="empty-state mx-auto py-3"
+                    class="empty-state mx-auto py-8"
                 >
-                    <i class="fas fa-bell-slash text-xl"></i>
+                    <i class="fas fa-bell-slash text-lg"></i>
                     <div class="text-gray-400">
                         No hay notificaciones disponibles
                     </div>
