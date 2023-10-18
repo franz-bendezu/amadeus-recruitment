@@ -112,7 +112,24 @@ const notifications = [
                 </Link>
 
                 <!-- Notificaciones -->
-                <i class="fa-light fa-bell text-light icon-size cursor-pointer"></i>
+                <Dropdown align="right" width="96">
+                    <template #trigger>
+                        <span class="inline-flex nav-user">
+                            <button type="button"
+                                class="text-light inline-flex items-center leading-4 hover:text-gray-700 focus:outline-none">
+                                <i class="fa-light fa-bell text-light icon-size cursor-pointer"></i>
+                                <span
+                                class="position-absolute top-0 start-100 translate-middle p-2  bg-blue-400 rounded-circle"
+                            >
+                                <span class="visually-hidden">Nuevas notificaciones</span>
+                            </span>
+                            </button>
+                        </span>
+                    </template>
+
+                    <template #content>
+                    </template>
+                </Dropdown>
 
                 <Link
                     :href="route('logout')"
