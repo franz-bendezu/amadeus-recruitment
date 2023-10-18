@@ -1,7 +1,7 @@
 <template>
     <div class="notification-header">
         <div class="notification-header-content">
-            <div class="notification-header-title my-1">Notifications</div>
+            <div class="notification-header-title my-1">Notificaciones</div>
             <div class="notification-header-filter ml-3">
                 <Dropdown
                     align="left"
